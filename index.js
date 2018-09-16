@@ -5,7 +5,7 @@ const debug = require('debug')('app');
 const helmet = require('helmet');
 const logger = require('morgan');
 const path = require('path');
-const videoRouter = require('./routes/videos');
+const genreRouter = require('./routes/genres');
 
 const app = express();
 const PORT = process.env.PORT || config.get('PORT');
@@ -27,7 +27,7 @@ if (env === 'development') {
 }
 
 // routes
-app.use('/api/videos', videoRouter);
+app.use('/api/genres', genreRouter);
 app.get('/', (req, res) => {
   res.render('index', { title: 'vidly', message: 'Welcome to vidly App' });
 });
